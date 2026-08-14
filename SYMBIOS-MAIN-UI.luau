@@ -493,43 +493,4 @@ end
 
 function SymbiosUI:Destroy() if self.screen then self.screen:Destroy() end end
 
---========================================================================
--- ============================  DEMO  ==================================
--- Test content showing every component. Delete this block and build your own.
---========================================================================
-local UI = SymbiosUI.new({
-    title = "SYMBIOS", subtitle = "TEST GAME", railLabel = "MODULES",
-    -- iconUrl = "https://raw.githubusercontent.com/.../logo.png", -- floating-icon image (optional)
-    confirmClose = { title = "CLOSE SYMBIOS?", body = "This unloads the test UI.", confirm = "CLOSE" },
-    -- profile = false,          -- set to use a plain status line instead of the avatar card
-    -- statusText = "LINK · ACTIVE",
-})
-
--- ---- Tab 1: components showcase ----
-local t1 = UI:AddTab("MODULE ONE", "rbxassetid://97834078379872")
-local s1 = t1:AddSection("TEST SELECTION", "DEMO")
-s1:AddDropdown({ label = "MANY OPTIONS", note = "SELECT / ADD", options = { "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike" }, onChange = function(a) print("[TEST] picked:", table.concat(a, ", ")) end })
-s1:AddDropdown({ label = "FEW OPTIONS", note = "EMPTY = ANY", options = { "One", "Two", "Three" }, onChange = function(a) print("[TEST] few:", #a) end })
-
-local s2 = t1:AddSection("TEST CONTROLS")
-s2:AddSwitch({ title = "SAMPLE TOGGLE", default = true, onChange = function(v) print("[TEST] toggle:", v) end })
-s2:AddSlider({ label = "SAMPLE VALUE", min = 0, max = 100, default = 42, onChange = function(v) print("[TEST] value:", v) end })
-local setStatus = s2:AddReadout("IDLE")
-s2:AddEnable({ title = "ENABLE MODULE", sub = "Sample enable box", default = false, onChange = function(v) setStatus(v and "RUNNING…" or "IDLE"); UI:Notify("Module One", v and "Enabled" or "Disabled", 2) end })
-
--- ---- Tab 2: another module ----
-local t2 = UI:AddTab("MODULE TWO", "rbxassetid://131996513346128")
-local s3 = t2:AddSection("TEST INFO")
-s3:AddParagraph("This is a paragraph component for descriptions or instructions. It wraps across lines automatically.")
-s3:AddButton({ text = "TEST BUTTON", onClick = function() UI:Notify("Button", "Clicked!", 2) end })
-
--- ---- Tab 3: settings ----
-local t3 = UI:AddTab("SETTINGS", "rbxassetid://10734950309")
-local sg = t3:AddSection("GENERAL")
-sg:AddSwitch({ title = "SAMPLE SETTING", sub = "A persistent-looking toggle", default = true, onChange = function(v) print("[TEST] setting:", v) end })
-sg:AddSlider({ label = "FONT WEIGHT (− THIN · + THICK)", min = -2, max = 2, default = 0, int = true, onChange = function(v) UI:SetFontOffset(v) end })
-sg:AddKeybind({ title = "MENU TOGGLE KEY", sub = "Hide / show the window", default = Enum.KeyCode.RightShift, onChange = function(k) UI:SetToggleKey(k); UI:Notify("Keybind", "Menu toggle → " .. k.Name, 2) end })
-sg:AddInput({ placeholder = "Paste any text…", onCommit = function(t) print("[TEST] input:", t) end })
-sg:AddButton({ text = "TEST NOTIFY", onClick = function() UI:Notify("SYMBIOS UI", "This is a test notification.", 3) end })
-
-UI:Notify("SYMBIOS UI", "Template loaded — RightShift to hide/show.", 4)
+return SymbiosUI
