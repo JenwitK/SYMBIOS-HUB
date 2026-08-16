@@ -7,10 +7,14 @@
      ========================================================================= ]]
 
 -- PlaceId -> raw script URL. Add a game = add one line.
+-- Roll Anime to Fight! — BOTH the main world and the Infinite Tower place map to the
+-- SAME hub script (it detects the tower PlaceId and runs tower-only mode). Set this to
+-- wherever you host the hub (e.g. .../SYMBIOSHub.luau).
+local HUB_URL = "https://raw.githubusercontent.com/JenwitK/AnimeRoll-Script/refs/heads/main/RollAnimeHub.luau"
 local Games = {
-    -- Roll Anime to Fight!
-    [107653945083776] = "https://raw.githubusercontent.com/JenwitK/AnimeRoll-Script/refs/heads/main/RollAnimeHub.luau",
-    -- [PLACEID]      = "https://raw.githubusercontent.com/.../YourScript.luau",
+    [107653945083776]  = HUB_URL,  -- main world
+    [133623616308412]  = HUB_URL,  -- Infinite Tower
+    -- [PLACEID]       = "https://raw.githubusercontent.com/.../YourScript.luau",
 }
 
 --========================================================================
