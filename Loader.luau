@@ -14,6 +14,7 @@ local HUB_URL = "https://raw.githubusercontent.com/JenwitK/AnimeRoll-Script/refs
 local Games = {
     [107653945083776]  = HUB_URL,  -- main world
     [133623616308412]  = HUB_URL,  -- Infinite Tower
+    [133188236593503]  = "https://raw.githubusercontent.com/JenwitK/SYMBIOS-HUB/refs/heads/main/test.luau",
     -- [PLACEID]       = "https://raw.githubusercontent.com/.../YourScript.luau",
 }
 
