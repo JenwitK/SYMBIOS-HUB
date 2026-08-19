@@ -1,18 +1,3 @@
---[[ =========================================================================
-     SYMBIOS-MAIN-UI.luau  —  reusable monochrome "console" UI framework
-     Drop-in skeleton for building a hub on ANY game. No game logic inside.
-
-     QUICK START
-       local UI = SymbiosUI.new({ title = "SYMBIOS", subtitle = "MY GAME" })
-       local tab = UI:AddTab("MODULE", "rbxassetid://97834078379872")
-       local sec = tab:AddSection("SECTION")
-       sec:AddSwitch({ title = "DO THING", default = true, onChange = function(v) ... end })
-       ...
-     A full working DEMO (test content) is at the bottom of this file — delete
-     it and build your own with the same API.
-     ========================================================================= ]]
---!nonstrict
-
 local Players = game:GetService("Players")
 local UIS     = game:GetService("UserInputService")
 local Tween   = game:GetService("TweenService")
